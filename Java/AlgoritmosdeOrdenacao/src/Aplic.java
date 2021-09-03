@@ -60,7 +60,7 @@ public class Aplic {
         for (indx = 0; indx < size - 1; indx++) {
             if (vet[indx] > vet[indx + 1]) {
                 
-                //swap(vet, indx, indx + 1);
+                
                 int aux = vet[indx];
                 vet[indx] = vet[indx + 1];
                 vet[indx + 1] = aux;
