@@ -14,6 +14,7 @@ public class Aplic {
         
         int size = 0;
         int[] vet;
+        //boolean showLine = true;
         
         Scanner entrada = new Scanner(System.in);
         Random gerador = new Random();
@@ -23,6 +24,25 @@ public class Aplic {
             size = entrada.nextInt();
                
         } while (size <= 0);
+        
+        /*
+        System.out.println("Deseja que as linhas sejam mostradas no console? S/N");
+        String resposta;
+        resposta = entrada.nextLine();
+        
+        if (resposta == "S" || resposta == "s")
+        {
+        showLine = true;
+        }
+        else if (resposta == "N" || resposta == "n")
+        {
+        showLine = false;
+        }
+        else
+        {
+        System.out.println("Erro! Como não entendi sua resposta, as linhas serão mostradas por padrão!");
+        }
+        */
         
         //definindo o tamanho do vetor
             vet = new int[size];
