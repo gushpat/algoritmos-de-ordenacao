@@ -48,7 +48,7 @@ public class Aplic {
 
     public static void BubbleSort(int[] vet, int size)
     {
-    
+       //implementar a função bubblesort aqui my friend
        System.out.println(Arrays.toString(vet));
     }
     
