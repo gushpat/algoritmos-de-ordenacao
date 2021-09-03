@@ -1,17 +1,17 @@
 # Algoritmos de Ordenação
-<img src="https://c.tenor.com/3B0B_l8ztkwAAAAC/nerd-nerd-alert.gif" alt="Girl in a jacket" width="300" height="100%">
+<img src="https://c.tenor.com/KBe_nw4IL2QAAAAC/matrix-code.gif" alt="Girl in a jacket" width="3000" height="50">
 Uma coleção dos algoritmos de ordenação bubble, selection, insertion e quick feita em várias linguagens
 
-# O QUE SÃO ALGORITMOS DE ORDENAÇÃO?
+## O QUE SÃO ALGORITMOS DE ORDENAÇÃO?
 
-# JAVA
+## JAVA
 
-# C#
+## C#
 
-# C++
+## C++
 
-# PASCAL
+## PASCAL
 
-# C
+## C
 
-# 
+## 
