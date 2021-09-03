@@ -48,31 +48,31 @@ public class Aplic {
 
     public static void BubbleSort(int[] vet, int size)
     {
-       //implementar a função bubblesort aqui my friend
-       System.out.println(Arrays.toString(vet));
-    }
-    
-    /*  
+       
+       
+        int indx;
+        boolean found = true; 
 
-void BubbleSort(long vet[], long size) {
-    long indx;
-    BOOL found = TRUE; // unsigned int found;
-
-    showLine(vet,size);
+        
 
     while (found) {
-        found = FALSE;
+        found = false;
         for (indx = 0; indx < size - 1; indx++) {
             if (vet[indx] > vet[indx + 1]) {
-                swap(vet, indx, indx + 1);
-                showLine(vet,size);
-                found = TRUE;
+                
+                //swap(vet, indx, indx + 1);
+                int aux = vet[indx];
+                vet[indx] = vet[indx + 1];
+                vet[indx + 1] = aux;
+                
+                System.out.println(Arrays.toString(vet));
+                found = true;
             }
         }
     }
-}
-
-*/
+       
+       
+    }
     
     
     
