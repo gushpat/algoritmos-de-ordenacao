@@ -57,7 +57,7 @@ public class Aplic {
         System.out.println("\nOs números gerados foram:");
         //Exibição do vetor vet sem ordenação nennhuma
         System.out.println(Arrays.toString(vet));
-        
+        System.out.println("\n");
         
         BubbleSort(vet,size);
         
