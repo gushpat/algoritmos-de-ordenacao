@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Arrays;
 /**
  *
  * @author Gustavo Patricio
@@ -25,17 +26,30 @@ public class Aplic {
         
         //definindo o tamanho do vetor
             vet = new int[size];
+        
+        //Gerando numeros aleatórios para popular o vetor
+        for (int i = 0; i < size; i++) { 
             
+            vet[i] = gerador.nextInt(1000);
+            
+        }
+        
+        System.out.println("\nOs números gerados foram:");
+        //Exibição do vetor vet sem ordenação nennhuma
+        System.out.println(Arrays.toString(vet));
+        
+        
+        BubbleSort(vet,size);
         
         
         
     }
     
 
-    public static void BubbleSort(int[] vetor, int size)
+    public static void BubbleSort(int[] vet, int size)
     {
     
-    
+       System.out.println(Arrays.toString(vet));
     }
     
     /*  
