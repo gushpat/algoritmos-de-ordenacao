@@ -1,12 +1,33 @@
+import java.util.Scanner;
+import java.util.Random;
 /**
  *
  * @author Gustavo Patricio
  */
 public class Aplic {
 
+    
+    
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        int size = 0;
+        int[] vet;
+        
+        Scanner entrada = new Scanner(System.in);
+        Random gerador = new Random();
+
+        do {
+            System.out.println("Digite o tamanho do vetor");
+            size = entrada.nextInt();
+               
+        } while (size <= 0);
+        
+        //definindo o tamanho do vetor
+            vet = new int[size];
+            
+        
+        
         
     }
     
