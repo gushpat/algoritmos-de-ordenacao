@@ -14,4 +14,6 @@ Uma coleção dos algoritmos de ordenação bubble, selection, insertion e quick
 
 ## C
 
-## 
+## PYTHON
+
+## JAVASCRIPT
