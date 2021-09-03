@@ -67,17 +67,41 @@ public class Aplic {
 
             case 3:
                 /*Insertion*/
-                System.out.println("Esta função ainda não foi programada!");
+                InsertionSort(vet, size);
                 break;
 
             case 4:
                 /*Quick*/
-                System.out.println("Esta função ainda não foi programada!");
+                QuickSort(vet, size);
                 break;
         }
 
         System.out.println("\n\n");
 
+    }
+    
+    public static void QuickSort(int[] vet, int size)
+    {
+    
+    }
+    
+
+    public static void InsertionSort(int[] vet, int size) {
+        int i, key, j;
+
+        System.out.println(Arrays.toString(vet));
+
+        for (i = 1; i < size; i++) {
+            key = vet[i];
+            j = i - 1;
+            while (j >= 0 && vet[j] > key) {
+                vet[j + 1] = vet[j];
+                System.out.println(Arrays.toString(vet));
+                j = j - 1;
+            }
+            vet[j + 1] = key;
+            System.out.println(Arrays.toString(vet));
+        }
     }
 
     public static void SelectionSort(int[] vet, int size) {
@@ -88,13 +112,11 @@ public class Aplic {
         for (indx = 0; indx < size - 1; indx++) {
             for (indy = indx + 1; indy < size; indy++) {
                 if (vet[indx] > vet[indy]) {
-                    
-                    //swap(vet, indx, indy);
-                    
+
                     int aux = vet[indx];
                     vet[indx] = vet[indy];
                     vet[indy] = aux;
-                    
+
                     System.out.println(Arrays.toString(vet));
                 }
             }
@@ -107,7 +129,7 @@ public class Aplic {
         boolean found = true;
 
         System.out.println(Arrays.toString(vet));
-        
+
         while (found) {
             found = false;
             for (indx = 0; indx < size - 1; indx++) {
@@ -130,4 +152,4 @@ public class Aplic {
 
 /*
 
-*/
+ */
