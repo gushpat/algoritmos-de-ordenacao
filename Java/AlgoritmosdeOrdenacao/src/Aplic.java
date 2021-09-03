@@ -57,12 +57,50 @@ public class Aplic {
         System.out.println("\nOs números gerados foram:");
         //Exibição do vetor vet sem ordenação nennhuma
         System.out.println(Arrays.toString(vet));
-        System.out.println("\n");
+        System.out.println("");
         
-        BubbleSort(vet,size);
+        int opcao;
         
         
+            
+            System.out.println("************************");
+            System.out.println("ALGORITMOS DE ORDENAÇÃO");
+            System.out.println("************************");
+            System.out.println("");
         
+            System.out.println("1 - Bubble Sort");
+            System.out.println("2 - Selection Sort");
+            System.out.println("3 - Insertion Sort");
+            System.out.println("4 - Quick Sort");
+            System.out.println("5 - Sair");
+            System.out.print("\n\n\t Digite a opcao: ");
+            opcao = entrada.nextInt();
+            System.out.println("\n");  
+
+            switch (opcao) {
+                case 1: /*Bubble*/
+                    BubbleSort(vet,size);
+                    break;
+
+                case 2:/*Selection*/
+                    System.out.println("Esta função ainda não foi programada!");
+                    
+                    break;
+
+                case 3: /*Insertion*/
+                    System.out.println("Esta função ainda não foi programada!");
+                    break;
+                    
+                case 4: /*Quick*/
+                    System.out.println("Esta função ainda não foi programada!");
+                    break;
+            }
+           
+        
+        System.out.println("\n\n");  
+        
+        
+  
     }
     
 
@@ -99,3 +137,19 @@ public class Aplic {
 }
 
 
+/*
+void SelectionSort(long vet[], long size) {
+    long indx, indy;
+
+    showLine(vet, size);
+
+    for (indx = 0; indx < size - 1; indx++) {
+        for (indy = indx + 1; indy < size; indy++) {
+            if (vet[indx] > vet[indy]) {
+                swap(vet, indx, indy);
+                showLine(vet, size);
+            }
+        }
+    }
+}
+*/
