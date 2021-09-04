@@ -82,37 +82,7 @@ public class Aplic {
     
     public static void QuickSort(int[] vet, int left, int right)
     {
-        
-    int i, j, x, y;
-     
-    i = left;
-    j = right;
-    x = vet[(left + right) / 2];
-     
-    while(i <= j) {
-        while(vet[i] < x && i < right) {
-            i++;
-        }
-        while(vet[j] > x && j > left) {
-            j--;
-        }
-        if(i <= j) {
-            y = vet[i];
-            vet[i] = vet[j];
-            vet[j] = y;
-            i++;
-            j--;
-        }
-    }
-     
-    if(j > left) {
-        QuickSort(vet, left, j);
-    }
-    if(i < right) {
-        QuickSort(vet, i, right);
-    }
-
-    
+    System.out.println("Esta função não foi implementada ainda!!!");
     }
     
 
