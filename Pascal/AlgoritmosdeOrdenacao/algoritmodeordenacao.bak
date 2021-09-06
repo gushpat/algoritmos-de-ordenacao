@@ -1,0 +1,46 @@
+{
+   AUTOR: GUSTAVO PATRICIO 2021
+
+
+}
+
+
+program algoritmo_de_ordenacao;
+
+
+uses crt;
+
+var
+  opcao: Byte;
+
+BEGIN
+clrscr;
+WriteLn('************************************************************');
+WriteLn('**************** ALGORITMOS DE ORDENACAO *******************');
+WriteLn('******************** PASCAL EDITION ************************');
+WriteLn('************************************************************');
+
+WriteLn('');
+
+WriteLn('1 - Bubble Sort');
+WriteLn('2 - Selection Sort');
+WriteLn('3 - Insertion Sort');
+WriteLn('4 - Quick Sort');
+WriteLn('5 - Sair');
+
+WriteLn('');
+WriteLn('Digite a opcao: ');
+
+
+ReadLn(opcao);
+
+teste
+
+
+
+
+
+
+ReadLn();
+
+END.
