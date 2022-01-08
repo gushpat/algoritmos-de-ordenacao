@@ -7,9 +7,9 @@ program algoritmo_de_ordenacao;
 
 uses crt;
 
-type vArray = array[1..tam] of integer;
+type vArray = array[1..100] of integer;
 
-const tam = 100;
+
 //procedure BubbleSort( var vetBubble: vArray);
 
 var
@@ -17,6 +17,7 @@ var
   vet: vArray;
   CONT: Integer;
   size: Integer;
+  tam: Integer;
 
   //variaveis do bubble sort;
   //indx: Integer;
@@ -341,6 +342,8 @@ end;
 
 BEGIN
 
+tam := 100;
+
 clrscr;
 WriteLn('************************************************************');
 WriteLn('**************** ALGORITMOS DE ORDENACAO *******************');
@@ -460,7 +463,7 @@ begin
   end;
 end;
 
-else if opcao = 10 then HALT;
+
 
 
 
