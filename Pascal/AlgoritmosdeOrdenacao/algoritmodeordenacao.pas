@@ -342,7 +342,12 @@ WriteLn('1 - Bubble Sort');
 WriteLn('2 - Selection Sort');
 WriteLn('3 - Insertion Sort');
 WriteLn('4 - Quick Sort');
-WriteLn('5 - Sair');
+WriteLn('5 - Merge Sort');
+WriteLn('6 - Shell Sort');
+WriteLn('7 - Heap Sort');
+WriteLn('8 - Counting Sort');
+WriteLn('9 - Radix Sort');
+
 
 WriteLn('');
 WriteLn('Digite a opcao: ');
