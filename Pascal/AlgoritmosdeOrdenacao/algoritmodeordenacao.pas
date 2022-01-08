@@ -347,6 +347,7 @@ WriteLn('6 - Shell Sort');
 WriteLn('7 - Heap Sort');
 WriteLn('8 - Counting Sort');
 WriteLn('9 - Radix Sort');
+WriteLn('10 - Exit');
 
 
 WriteLn('');
@@ -380,6 +381,80 @@ begin
     WriteLn(vetBubble[CONT]);
   end;
 end;
+
+else if opcao = 2 then
+begin
+  SelectionSort(vetSelection);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetSelection[CONT]);
+  end;
+end;
+
+else if opcao = 3 then
+begin
+  InsertionSort(vetInsertion);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetInsertion[CONT]);
+  end;
+end;
+
+else if opcao = 4 then
+begin
+  QuickSort(vetQuick);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetQuick[CONT]);
+  end;
+end;
+
+else if opcao = 5 then
+begin
+  MergeSort(vetMerge);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetMerge[CONT]);
+  end;
+end;
+
+else if opcao = 6 then
+begin
+  ShellSort(vetShell);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetShell[CONT]);
+  end;
+end;
+
+else if opcao = 7 then
+begin
+  HeapSort(vetHeap);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetHeap[CONT]);
+  end;
+end;
+
+else if opcao = 8 then
+begin
+  CountingSort(vetCounting);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetCounting[CONT]);
+  end;
+end;
+
+else if opcao = 9 then
+begin
+  RadixSort(vetRadix);
+  FOR CONT:=1 to 10 do
+  begin
+    WriteLn(vetRadix[CONT]);
+  end;
+end;
+
+else if opcao = 10 then HALT;
 
 
 
