@@ -7,8 +7,9 @@ program algoritmo_de_ordenacao;
 
 uses crt;
 
-type vArray = array [1..11] of Integer;
+type vArray = array[1..tam] of integer;
 
+const tam = 100;
 //procedure BubbleSort( var vetBubble: vArray);
 
 var
@@ -326,6 +327,16 @@ begin
   end;
 end;
 
+procedure RandomNumber ();
+var
+  i: Integer;
+begin
+  for i := 1 to max do
+  begin
+    vet[i] := Random(100);
+  end;
+end;
+
 
 
 BEGIN
@@ -356,15 +367,10 @@ WriteLn('Digite a opcao: ');
 
 ReadLn(opcao);
 
-FOR CONT:=1 to 10 do
-begin
-  WriteLn('Digite um Numero:');
-  ReadLn(vet[CONT]);
-end;
-
+RandomNumber ();
  //-----------------------------
 
-FOR CONT:=1 to 10 do
+FOR CONT:=1 to max do
 begin
   WriteLn(vet[CONT]);
 end;
@@ -376,7 +382,7 @@ end;
 if opcao = 1 then
 begin
   BubbleSort(vetBubble);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetBubble[CONT]);
   end;
@@ -385,7 +391,7 @@ end;
 else if opcao = 2 then
 begin
   SelectionSort(vetSelection);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetSelection[CONT]);
   end;
@@ -394,7 +400,7 @@ end;
 else if opcao = 3 then
 begin
   InsertionSort(vetInsertion);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetInsertion[CONT]);
   end;
@@ -403,7 +409,7 @@ end;
 else if opcao = 4 then
 begin
   QuickSort(vetQuick);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetQuick[CONT]);
   end;
@@ -412,7 +418,7 @@ end;
 else if opcao = 5 then
 begin
   MergeSort(vetMerge);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetMerge[CONT]);
   end;
@@ -421,7 +427,7 @@ end;
 else if opcao = 6 then
 begin
   ShellSort(vetShell);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetShell[CONT]);
   end;
@@ -430,7 +436,7 @@ end;
 else if opcao = 7 then
 begin
   HeapSort(vetHeap);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetHeap[CONT]);
   end;
@@ -439,7 +445,7 @@ end;
 else if opcao = 8 then
 begin
   CountingSort(vetCounting);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetCounting[CONT]);
   end;
@@ -448,7 +454,7 @@ end;
 else if opcao = 9 then
 begin
   RadixSort(vetRadix);
-  FOR CONT:=1 to 10 do
+  FOR CONT:=1 to max do
   begin
     WriteLn(vetRadix[CONT]);
   end;
