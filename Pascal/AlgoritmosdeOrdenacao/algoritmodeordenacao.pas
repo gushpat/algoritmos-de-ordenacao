@@ -37,10 +37,10 @@ procedure SelectionSort( var vetSelection: vArray);
 var
   i, j, min, aux: Integer;
 begin
-  for i := 1 to size - 1 do
+  for i := 1 to tam - 1 do
   begin
     min := i;
-    for j := i + 1 to size do
+    for j := i + 1 to tam do
     begin
       if vetSelection[j] < vetSelection[min] then
         min := j;
@@ -56,9 +56,9 @@ procedure BubbleSort( var vetBubble: vArray);
 var
   i, j, aux: Integer;
 begin
-  for i := 1 to size - 1 do
+  for i := 1 to tam - 1 do
   begin
-    for j := 1 to size - i do
+    for j := 1 to tam - i do
     begin
       if vetBubble[j] > vetBubble[j + 1] then
       begin
@@ -74,7 +74,7 @@ procedure InsertionSort( var vetInsertion: vArray);
 var
   i, j, aux: Integer;
 begin
-  for i := 2 to size do
+  for i := 2 to tam do
   begin
     aux := vetInsertion[i];
     j := i - 1;
@@ -96,7 +96,7 @@ begin
   n := 0;
   q := 0;
   r := 0;
-  for i := 1 to size do
+  for i := 1 to tam do
   begin
     if (vetMerge[i] < vetMerge[i + 1]) then
     begin
@@ -152,7 +152,7 @@ begin
   n := 0;
   q := 0;
   r := 0;
-  for i := 1 to size do
+  for i := 1 to tam do
   begin
     if (vetQuick[i] < vetQuick[i + 1]) then
     begin
@@ -208,7 +208,7 @@ begin
   n := 0;
   q := 0;
   r := 0;
-  for i := 1 to size do
+  for i := 1 to tam do
   begin
     if (vetShell[i] < vetShell[i + 1]) then
     begin
@@ -240,7 +240,7 @@ begin
   n := 0;
   q := 0;
   r := 0;
-  for i := 1 to size do
+  for i := 1 to tam do
   begin
     if (vetHeap[i] < vetHeap[i + 1]) then
     begin
@@ -272,7 +272,7 @@ begin
   n := 0;
   q := 0;
   r := 0;
-  for i := 1 to size do
+  for i := 1 to tam do
   begin
     if (vetCounting[i] < vetCounting[i + 1]) then
     begin
@@ -304,7 +304,7 @@ begin
   n := 0;
   q := 0;
   r := 0;
-  for i := 1 to size do
+  for i := 1 to tam do
   begin
     if (vetRadix[i] < vetRadix[i + 1]) then
     begin
@@ -331,7 +331,7 @@ procedure RandomNumber ();
 var
   i: Integer;
 begin
-  for i := 1 to max do
+  for i := 1 to tam do
   begin
     vet[i] := Random(100);
   end;
@@ -370,7 +370,7 @@ ReadLn(opcao);
 RandomNumber ();
  //-----------------------------
 
-FOR CONT:=1 to max do
+FOR CONT:=1 to tam do
 begin
   WriteLn(vet[CONT]);
 end;
@@ -382,7 +382,7 @@ end;
 if opcao = 1 then
 begin
   BubbleSort(vetBubble);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetBubble[CONT]);
   end;
@@ -391,7 +391,7 @@ end;
 else if opcao = 2 then
 begin
   SelectionSort(vetSelection);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetSelection[CONT]);
   end;
@@ -400,7 +400,7 @@ end;
 else if opcao = 3 then
 begin
   InsertionSort(vetInsertion);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetInsertion[CONT]);
   end;
@@ -409,7 +409,7 @@ end;
 else if opcao = 4 then
 begin
   QuickSort(vetQuick);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetQuick[CONT]);
   end;
@@ -418,7 +418,7 @@ end;
 else if opcao = 5 then
 begin
   MergeSort(vetMerge);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetMerge[CONT]);
   end;
@@ -427,7 +427,7 @@ end;
 else if opcao = 6 then
 begin
   ShellSort(vetShell);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetShell[CONT]);
   end;
@@ -436,7 +436,7 @@ end;
 else if opcao = 7 then
 begin
   HeapSort(vetHeap);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetHeap[CONT]);
   end;
@@ -445,7 +445,7 @@ end;
 else if opcao = 8 then
 begin
   CountingSort(vetCounting);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetCounting[CONT]);
   end;
@@ -454,7 +454,7 @@ end;
 else if opcao = 9 then
 begin
   RadixSort(vetRadix);
-  FOR CONT:=1 to max do
+  FOR CONT:=1 to tam do
   begin
     WriteLn(vetRadix[CONT]);
   end;
