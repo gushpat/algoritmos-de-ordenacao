@@ -80,9 +80,128 @@ public class Aplic {
 
     }
     
-    public static void QuickSort(int[] vet, int left, int right)
-    {
-    System.out.println("Esta função não foi implementada ainda!!!");
+    public static void QuickSort(int[] vet, int inicio, int fim) {
+        int pivo;
+        int i, j;
+        int aux;
+
+        i = inicio;
+        j = fim - 1;
+        pivo = vet[(inicio + fim) / 2];
+
+        while (i <= j) {
+            while (vet[i] < pivo) {
+                i++;
+            }
+            while (vet[j] > pivo) {
+                j--;
+            }
+            if (i <= j) {
+                aux = vet[i];
+                vet[i] = vet[j];
+                vet[j] = aux;
+                i++;
+                j--;
+            }
+        }
+
+        if (inicio < j) {
+            QuickSort(vet, inicio, j + 1);
+        }
+        if (i < fim) {
+            QuickSort(vet, i, fim);
+        }
+    }
+
+
+
+    public static void MergeSort(int[] vet, int inicio, int fim) {
+        int meio;
+
+        if (inicio < fim) {
+            meio = (inicio + fim) / 2;
+            MergeSort(vet, inicio, meio);
+            MergeSort(vet, meio + 1, fim);
+            Merge(vet, inicio, meio, fim);
+        }
+    }
+
+    public static void Merge(int[] vet, int inicio, int meio, int fim) {
+        int[] aux = new int[vet.length];
+        int i, j, k;
+
+        i = inicio;
+        j = meio + 1;
+        k = inicio;
+
+        while ((i <= meio) && (j <= fim)) {
+            if (vet[i] < vet[j]) {
+                aux[k] = vet[i];
+                i++;
+            } else {
+                aux[k] = vet[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i <= meio) {
+            aux[k] = vet[i];
+            i++;
+            k++;
+        }
+
+        while (j <= fim) {
+            aux[k] = vet[j];
+            j++;
+            k++;
+        }
+
+        for (i = inicio; i <= fim; i++) {
+            vet[i] = aux[i];
+        }
+    }
+
+    public static void HeapSort(int[] vet, int size) {
+        int i;
+
+        for (i = size / 2 - 1; i >= 0; i--) {
+            Heapify(vet, size, i);
+        }
+
+        for (i = size - 1; i >= 0; i--) {
+            Swap(vet, 0, i);
+            Heapify(vet, i, 0);
+        }
+    }
+
+    public static void Heapify(int[] vet, int size, int i) {
+        int maior;
+        int esq = 2 * i + 1;
+        int dir = 2 * i + 2;
+
+        if (esq < size && vet[esq] > vet[i]) {
+            maior = esq;
+        } else {
+            maior = i;
+        }
+
+        if (dir < size && vet[dir] > vet[maior]) {
+            maior = dir;
+        }
+
+        if (maior != i) {
+            Swap(vet, i, maior);
+            Heapify(vet, size, maior);
+        }
+    }
+
+    public static void Swap(int[] vet, int i, int j) {
+        int aux;
+
+        aux = vet[i];
+        vet[i] = vet[j];
+        vet[j] = aux;
     }
     
 
@@ -146,6 +265,8 @@ public class Aplic {
         }
 
     }
+
+    
 
 }
 
