@@ -13,7 +13,6 @@ algoritmos-de-ordenacao/
 ├── C/            → main.c
 ├── C++/          → main.cpp
 ├── C#/           → Program.cs
-├── CSS/          → index.html (visualização interativa)
 ├── Dart/         → main.dart
 ├── Java/         → src/Aplic.java
 ├── JavaScript/   → main.js
