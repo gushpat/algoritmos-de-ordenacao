@@ -1,276 +1,319 @@
-
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
 
-/**
- *
- * @author Gustavo Patricio
- */
 public class Aplic {
 
     public static void main(String[] args) {
-
-        int size = 0;
-        int[] vet;
-
         Scanner entrada = new Scanner(System.in);
         Random gerador = new Random();
 
+        int size;
         do {
-            System.out.println("Digite o tamanho do vetor");
+            System.out.print("Digite o tamanho do vetor: ");
             size = entrada.nextInt();
-
         } while (size <= 0);
 
-        //definindo o tamanho do vetor
-        vet = new int[size];
-
-        //Gerando numeros aleatórios para popular o vetor
+        int[] vet = new int[size];
         for (int i = 0; i < size; i++) {
-
             vet[i] = gerador.nextInt(1000);
-
         }
 
-        System.out.println("\nOs números gerados foram:");
-        //Exibição do vetor vet sem ordenação nenhuma
+        System.out.println("\nVetor original:");
         System.out.println(Arrays.toString(vet));
-        System.out.println("");
 
-        int opcao;
+        System.out.println("\n--- ALGORITMOS DE ORDENACAO ---");
+        System.out.println("1  - Bubble Sort");
+        System.out.println("2  - Selection Sort");
+        System.out.println("3  - Insertion Sort");
+        System.out.println("4  - Merge Sort");
+        System.out.println("5  - Quick Sort");
+        System.out.println("6  - Heap Sort");
+        System.out.println("7  - Shell Sort");
+        System.out.println("8  - Counting Sort");
+        System.out.println("9  - Radix Sort");
+        System.out.println("10 - Bucket Sort");
+        System.out.println("0  - Sair");
+        System.out.print("\nOpcao: ");
 
-        System.out.println("************************");
-        System.out.println("ALGORITMOS DE ORDENAÇÃO");
-        System.out.println("************************");
-        System.out.println("");
-        //exibindo opções para usuario
-        System.out.println("1 - Bubble Sort");
-        System.out.println("2 - Selection Sort");
-        System.out.println("3 - Insertion Sort");
-        System.out.println("4 - Quick Sort");
-        System.out.println("5 - Sair");
-        System.out.print("\n\n\t Digite a opcao: ");
-        opcao = entrada.nextInt();
-        System.out.println("\n");
+        int opcao = entrada.nextInt();
+
+        if (opcao == 0) {
+            System.out.println("Saindo...");
+            return;
+        }
+
+        int[] copy = Arrays.copyOf(vet, vet.length);
 
         switch (opcao) {
-            case 1:
-                /*Bubble*/
-                BubbleSort(vet, size);
-                break;
-
-            case 2:/*Selection*/
-                SelectionSort(vet, size);
-
-                break;
-
-            case 3:
-                /*Insertion*/
-                InsertionSort(vet, size);
-                break;
-
-            case 4:
-                /*Quick*/
-                QuickSort(vet, 0, size);
-                break;
+            case 1:  BubbleSort(copy); break;
+            case 2:  SelectionSort(copy); break;
+            case 3:  InsertionSort(copy); break;
+            case 4:  MergeSort(copy, 0, copy.length - 1); break;
+            case 5:  QuickSort(copy, 0, copy.length - 1); break;
+            case 6:  HeapSort(copy); break;
+            case 7:  ShellSort(copy); break;
+            case 8:  CountingSort(copy); break;
+            case 9:  RadixSort(copy); break;
+            case 10: BucketSort(copy); break;
+            default:
+                System.out.println("Opcao invalida");
+                return;
         }
 
-        System.out.println("\n\n");
-
+        System.out.println("\nVetor ordenado:");
+        System.out.println(Arrays.toString(copy));
     }
-    
-    public static void QuickSort(int[] vet, int inicio, int fim) {
-        int pivo;
-        int i, j;
-        int aux;
 
-        i = inicio;
-        j = fim - 1;
-        pivo = vet[(inicio + fim) / 2];
-
-        while (i <= j) {
-            while (vet[i] < pivo) {
-                i++;
+    public static void BubbleSort(int[] v) {
+        int n = v.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (v[j] > v[j + 1]) {
+                    int temp = v[j];
+                    v[j] = v[j + 1];
+                    v[j + 1] = temp;
+                }
             }
-            while (vet[j] > pivo) {
+        }
+    }
+
+    public static void SelectionSort(int[] v) {
+        int n = v.length;
+        for (int i = 0; i < n - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < n; j++) {
+                if (v[j] < v[min]) {
+                    min = j;
+                }
+            }
+            int temp = v[i];
+            v[i] = v[min];
+            v[min] = temp;
+        }
+    }
+
+    public static void InsertionSort(int[] v) {
+        int n = v.length;
+        for (int i = 1; i < n; i++) {
+            int key = v[i];
+            int j = i - 1;
+            while (j >= 0 && v[j] > key) {
+                v[j + 1] = v[j];
                 j--;
             }
-            if (i <= j) {
-                aux = vet[i];
-                vet[i] = vet[j];
-                vet[j] = aux;
-                i++;
-                j--;
-            }
-        }
-
-        if (inicio < j) {
-            QuickSort(vet, inicio, j + 1);
-        }
-        if (i < fim) {
-            QuickSort(vet, i, fim);
+            v[j + 1] = key;
         }
     }
 
-
-
-    public static void MergeSort(int[] vet, int inicio, int fim) {
-        int meio;
-
-        if (inicio < fim) {
-            meio = (inicio + fim) / 2;
-            MergeSort(vet, inicio, meio);
-            MergeSort(vet, meio + 1, fim);
-            Merge(vet, inicio, meio, fim);
+    public static void MergeSort(int[] v, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            MergeSort(v, left, mid);
+            MergeSort(v, mid + 1, right);
+            Merge(v, left, mid, right);
         }
     }
 
-    public static void Merge(int[] vet, int inicio, int meio, int fim) {
-        int[] aux = new int[vet.length];
-        int i, j, k;
+    private static void Merge(int[] v, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
 
-        i = inicio;
-        j = meio + 1;
-        k = inicio;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
 
-        while ((i <= meio) && (j <= fim)) {
-            if (vet[i] < vet[j]) {
-                aux[k] = vet[i];
+        for (int i = 0; i < n1; i++) L[i] = v[left + i];
+        for (int j = 0; j < n2; j++) R[j] = v[mid + 1 + j];
+
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                v[k] = L[i];
                 i++;
             } else {
-                aux[k] = vet[j];
+                v[k] = R[j];
                 j++;
             }
             k++;
         }
 
-        while (i <= meio) {
-            aux[k] = vet[i];
+        while (i < n1) {
+            v[k] = L[i];
             i++;
             k++;
         }
 
-        while (j <= fim) {
-            aux[k] = vet[j];
+        while (j < n2) {
+            v[k] = R[j];
             j++;
             k++;
         }
+    }
 
-        for (i = inicio; i <= fim; i++) {
-            vet[i] = aux[i];
+    public static void QuickSort(int[] v, int low, int high) {
+        if (low < high) {
+            int pi = Partition(v, low, high);
+            QuickSort(v, low, pi - 1);
+            QuickSort(v, pi + 1, high);
         }
     }
 
-    public static void HeapSort(int[] vet, int size) {
-        int i;
-
-        for (i = size / 2 - 1; i >= 0; i--) {
-            Heapify(vet, size, i);
-        }
-
-        for (i = size - 1; i >= 0; i--) {
-            Swap(vet, 0, i);
-            Heapify(vet, i, 0);
-        }
-    }
-
-    public static void Heapify(int[] vet, int size, int i) {
-        int maior;
-        int esq = 2 * i + 1;
-        int dir = 2 * i + 2;
-
-        if (esq < size && vet[esq] > vet[i]) {
-            maior = esq;
-        } else {
-            maior = i;
-        }
-
-        if (dir < size && vet[dir] > vet[maior]) {
-            maior = dir;
-        }
-
-        if (maior != i) {
-            Swap(vet, i, maior);
-            Heapify(vet, size, maior);
-        }
-    }
-
-    public static void Swap(int[] vet, int i, int j) {
-        int aux;
-
-        aux = vet[i];
-        vet[i] = vet[j];
-        vet[j] = aux;
-    }
-    
-
-    public static void InsertionSort(int[] vet, int size) {
-        int i, key, j;
-
-        System.out.println(Arrays.toString(vet));
-
-        for (i = 1; i < size; i++) {
-            key = vet[i];
-            j = i - 1;
-            while (j >= 0 && vet[j] > key) {
-                vet[j + 1] = vet[j];
-                System.out.println(Arrays.toString(vet));
-                j = j - 1;
+    private static int Partition(int[] v, int low, int high) {
+        int pivot = v[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (v[j] < pivot) {
+                i++;
+                int temp = v[i];
+                v[i] = v[j];
+                v[j] = temp;
             }
-            vet[j + 1] = key;
-            System.out.println(Arrays.toString(vet));
+        }
+        int temp = v[i + 1];
+        v[i + 1] = v[high];
+        v[high] = temp;
+        return i + 1;
+    }
+
+    public static void HeapSort(int[] v) {
+        int n = v.length;
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            Heapify(v, n, i);
+        }
+        for (int i = n - 1; i > 0; i--) {
+            int temp = v[0];
+            v[0] = v[i];
+            v[i] = temp;
+            Heapify(v, i, 0);
         }
     }
 
-    public static void SelectionSort(int[] vet, int size) {
-        int indx, indy;
+    private static void Heapify(int[] v, int n, int i) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
 
-        System.out.println(Arrays.toString(vet));
+        if (left < n && v[left] > v[largest]) largest = left;
+        if (right < n && v[right] > v[largest]) largest = right;
 
-        for (indx = 0; indx < size - 1; indx++) {
-            for (indy = indx + 1; indy < size; indy++) {
-                if (vet[indx] > vet[indy]) {
+        if (largest != i) {
+            int temp = v[i];
+            v[i] = v[largest];
+            v[largest] = temp;
+            Heapify(v, n, largest);
+        }
+    }
 
-                    int aux = vet[indx];
-                    vet[indx] = vet[indy];
-                    vet[indy] = aux;
+    public static void ShellSort(int[] v) {
+        int n = v.length;
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i++) {
+                int temp = v[i];
+                int j;
+                for (j = i; j >= gap && v[j - gap] > temp; j -= gap) {
+                    v[j] = v[j - gap];
+                }
+                v[j] = temp;
+            }
+        }
+    }
 
-                    System.out.println(Arrays.toString(vet));
+    public static void CountingSort(int[] v) {
+        int max = 0;
+        for (int num : v) {
+            if (num > max) max = num;
+        }
+
+        int[] count = new int[max + 1];
+        for (int num : v) {
+            count[num]++;
+        }
+
+        int index = 0;
+        for (int i = 0; i <= max; i++) {
+            while (count[i] > 0) {
+                v[index] = i;
+                index++;
+                count[i]--;
+            }
+        }
+    }
+
+    public static void RadixSort(int[] v) {
+        int max = 0;
+        for (int num : v) {
+            if (num > max) max = num;
+        }
+
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            CountingSortByDigit(v, exp);
+        }
+    }
+
+    private static void CountingSortByDigit(int[] v, int exp) {
+        int n = v.length;
+        int[] output = new int[n];
+        int[] count = new int[10];
+
+        for (int i = 0; i < n; i++) {
+            count[(v[i] / exp) % 10]++;
+        }
+
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            int digit = (v[i] / exp) % 10;
+            output[count[digit] - 1] = v[i];
+            count[digit]--;
+        }
+
+        System.arraycopy(output, 0, v, 0, n);
+    }
+
+    public static void BucketSort(int[] v) {
+        int n = v.length;
+        if (n <= 0) return;
+
+        int max = v[0], min = v[0];
+        for (int num : v) {
+            if (num > max) max = num;
+            if (num < min) min = num;
+        }
+
+        int bucketCount = (int) Math.sqrt(n) + 1;
+        int range = (max - min) / bucketCount + 1;
+
+        int[][] buckets = new int[bucketCount][n];
+        int[] bucketSizes = new int[bucketCount];
+
+        for (int num : v) {
+            int bucketIndex = (num - min) / range;
+            if (bucketIndex >= bucketCount) bucketIndex = bucketCount - 1;
+            buckets[bucketIndex][bucketSizes[bucketIndex]++] = num;
+        }
+
+        int index = 0;
+        for (int i = 0; i < bucketCount; i++) {
+            if (bucketSizes[i] > 0) {
+                InsertionSortBucket(buckets[i], bucketSizes[i]);
+                for (int j = 0; j < bucketSizes[i]; j++) {
+                    v[index++] = buckets[i][j];
                 }
             }
         }
     }
 
-    public static void BubbleSort(int[] vet, int size) {
-
-        int indx;
-        boolean found = true;
-
-        System.out.println(Arrays.toString(vet));
-
-        while (found) {
-            found = false;
-            for (indx = 0; indx < size - 1; indx++) {
-                if (vet[indx] > vet[indx + 1]) {
-
-                    int aux = vet[indx];
-                    vet[indx] = vet[indx + 1];
-                    vet[indx + 1] = aux;
-
-                    System.out.println(Arrays.toString(vet));
-                    found = true;
-                }
+    private static void InsertionSortBucket(int[] arr, int n) {
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
             }
+            arr[j + 1] = key;
         }
-
     }
-
-    
-
 }
-
-
-/*
-
- */
