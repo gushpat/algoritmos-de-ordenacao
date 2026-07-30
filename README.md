@@ -30,7 +30,7 @@ algoritmos-de-ordenacao/
 javac Java/AlgoritmosdeOrdenacao/src/Aplic.java -d Java/AlgoritmosdeOrdenacao/build
 java -cp Java/AlgoritmosdeOrdenacao/build Aplic
 ```
-- **Compilador:** [JDK](https://www.oracle.com/java/technologies/downloads/)
+- **Compilador:** [NetBeans](https://netbeans.apache.org/front/main/index.html)
 
 ### Pascal
 ```
